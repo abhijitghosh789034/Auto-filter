@@ -2,23 +2,23 @@ from pyrogram import Client, filters
 import os
 
 # Yeh tumhara bot ka credentials
-API_ID = 12345678   # Get it from https://my.telegram.org
-API_HASH = "your_api_hash"
-BOT_TOKEN = "your_bot_token"
+API_ID = 23685328   # Get it from https://my.telegram.org
+API_HASH = "560f107ef98507cdd0a567a665b9ad80"
+BOT_TOKEN = "7963574219:AAGd7V2HR2pcpQW_ND1Pgsyzcfi8IyKBPok"
 
 # Simple database ke liye ek dictionary
 movie_db = {
-    "avengers": "https://t.me/yourchannel/123",
-    "ironman": "https://t.me/yourchannel/456",
-    "spiderman": "https://t.me/yourchannel/789"
+    "avengers": "https://t.me/avengers190/123",
+    "ironman": "https://t.me/ironman1900/456",
+    "spiderman": "https://t.me/spiderman12090/789"
 }
 
 # Bot client
 bot = Client(
     "AutoFilterBot",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN
+    api_id=API_ID,7963574219
+    api_hash=API_HASH,560f107ef98507cdd0a567a665b9ad80
+    bot_token=BOT_TOKEN7963574219:AAGd7V2HR2pcpQW_ND1Pgsyzcfi8IyKBPok
 )
 
 @bot.on_message(filters.private & filters.text)
