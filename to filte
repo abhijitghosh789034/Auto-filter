@@ -1,0 +1,38 @@
+from pyrogram import Client, filters
+import os
+
+# Yeh tumhara bot ka credentials
+API_ID = 12345678   # Get it from https://my.telegram.org
+API_HASH = "your_api_hash"
+BOT_TOKEN = "your_bot_token"
+
+# Simple database ke liye ek dictionary
+movie_db = {
+    "avengers": "https://t.me/yourchannel/123",
+    "ironman": "https://t.me/yourchannel/456",
+    "spiderman": "https://t.me/yourchannel/789"
+}
+
+# Bot client
+bot = Client(
+    "AutoFilterBot",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
+
+@bot.on_message(filters.private & filters.text)
+async def filter_handler(client, message):
+    query = message.text.lower()
+    response = ""
+    
+    for movie, link in movie_db.items():
+        if query in movie:
+            response += f"**{movie.title()}**: [Click Here]({link})\n"
+
+    if response:
+        await message.reply(response, disable_web_page_preview=True)
+    else:
+        await message.reply("Movie not found! Try another name.")
+
+bot.run()
